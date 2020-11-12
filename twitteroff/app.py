@@ -78,10 +78,9 @@ def create_app():
         DB.create_all()
         return render_template(
             'base.html', 
-            title="Home"
+            title="All tweets have been updated.",
+            users=User.query.all()
             )
     
     return app
 
-# def insert_example_users():
-#     add_or_update_user("elonmusk")
