@@ -16,7 +16,7 @@ class User(DB.Model):
 class Tweet(DB.Model):
     """Tweet text data that is associated with User table"""
     id = DB.Column(DB.BigInteger, primary_key=True)
-    text = DB.Column(DB.Unicode(300))
+    text = DB.Column(DB.Unicode(1500))
     vect = DB.Column(DB.PickleType, nullable=False)
     user_id = DB.Column(DB.BigInteger, 
                         DB.ForeignKey("user.id"), 
@@ -28,10 +28,3 @@ class Tweet(DB.Model):
     def __repr__(self):
         return "<Tweet: {}>".format(self.text)
 
-# def insert_example_users():
-#     add_or_update_user("nasa")
-    # nate = User(id=1, name="Nate")
-    # mae = User(id=2, name="Maegan")
-    # DB.session.add(nate)
-    # DB.session.add(mae)
-    # DB.session.commit()
